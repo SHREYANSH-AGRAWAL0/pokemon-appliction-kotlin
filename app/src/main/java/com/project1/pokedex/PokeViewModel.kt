@@ -31,7 +31,8 @@ class PokeViewModel ( val pokeRepository: PokeRepository) : ViewModel() {
                                         resultPokemon->
                                 return Resource.Success( resultPokemon )
                         }
-                }            return Resource.Error(response.message())
+                }
+                return Resource.Error(response.message())
         }
 
 }

@@ -15,8 +15,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         val PokeApi = RetrofitHelper.getInstance().create(PokeApi::class.java)
         // launching a new coroutine
         GlobalScope.launch {
@@ -24,13 +22,8 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Pokemon: ", result.body().toString())
             Log.d("Pokemon",result.body()!!.results.toString())
         }
-
         val PokeRepository = PokeRepository()
         val viewModelProviderFactory = PokemonViewModelProviderFactory(PokeRepository)
         viewModel  = ViewModelProvider(this,viewModelProviderFactory).get(PokeViewModel::class.java)
-
-
-
-
     }
 }
